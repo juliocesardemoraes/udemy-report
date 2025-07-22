@@ -4,6 +4,8 @@ let aulaCount = 0;
 let quizCount = 0;
 let exerciseCount = 0;
 let totalClasses = 0;
+let totalProjects = 0;
+const projectsNames = [];
 
 const logs = Array.from(items)
   .map((item) => item.textContent)
@@ -23,6 +25,12 @@ const logs = Array.from(items)
       totalClasses++;
     }
 
+    if (text.includes("Projeto")) {
+      projectsNames.push(text);
+      exerciseCount++;
+      totalProjects++;
+    }
+
     return true;
   })
   .join("\n");
@@ -30,10 +38,17 @@ const logs = Array.from(items)
 const report = `
 Contadores:
 - Total de Aulas: ${aulaCount}
-- Total de Testes: ${quizCount}
+- Total de Quizzes: ${quizCount}
+- Total de Projetos: ${totalProjects}
 - Total de Exercícios de Programação: ${exerciseCount}
 - Total Geral de Aulas+Exercs: ${totalClasses}
 
+
+Projects names:
+
+${projectsNames.map((item) => {
+  return `${item}\n`;
+})}
 
 Logs:
 ${logs}

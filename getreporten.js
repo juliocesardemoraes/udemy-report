@@ -4,6 +4,8 @@ let aulaCount = 0;
 let quizCount = 0;
 let exerciseCount = 0;
 let totalClasses = 0;
+let totalContent = 0;
+let lectureCount = 0;
 
 const logs = Array.from(items)
   .map((item) => item.textContent)
